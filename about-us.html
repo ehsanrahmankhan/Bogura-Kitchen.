@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bogura Kitchen | About Us</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- nav-bar start here -->
+    <div class="nav-bg">
+        <div class="nav">
+            <div class="logo">
+                <h1>Bogura Kitchen</h1>
+                <img src="" alt="">
+            </div>
+            <div class="nav-item">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about-us.html">ABOUT US</a></li>
+                    <li><a href="contact-us.html">CONTACT US</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <!-- menu end here -->
+    <main>
+        <section class="team">
+            <div class="container">
+                <h2>Our Chef's</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="assets/chef-1.jpg" alt="Jane Doe">
+                        <div class="team-member-info">
+                            <h3>Jane Doe</h3>
+                            <p>Executive Chef & Founder</p>
+                            <p>Jane has over 15 years of culinary experience and is passionate about creating innovative
+                                dishes that celebrate local ingredients.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="assets/chef-2.jpg" alt="John Smith">
+                        <div class="team-member-info">
+                            <h3>Samantha Lee</h3>
+                            <p>Sous Chef</p>
+                            <p>Samantha is a culinary enthusiast with a knack for perfecting flavors and enhancing our
+                                menu with unique culinary techniques.</p>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="assets/chef-3.jpg" alt="Emily Brown">
+                        <div class="team-member-info">
+                            <h3>Emily Brown</h3>
+                            <p>Head of Marketing</p>
+                            <p>Emily brings creativity and strategic thinking to our marketing efforts, helping us
+                                attract new guests and elevate our restaurant’s profile.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-company">
+            <div class="container">
+                <h2>About Our Restaurant</h2>
+                <div class="about-company-content">
+                    <div class="about-company-text">
+                        <p>Founded in 2010, our restaurant aims to revolutionize dining experiences through exceptional
+                            food and outstanding customer service. We’ve grown from a cozy eatery to a beloved
+                            destination, thanks to our dedicated team and loyal patrons.</p>
+                        <p>We believe in sustainable practices, ethical sourcing, and giving back to our community. Our
+                            dishes are crafted with care, ensuring we delight every guest and exceed their expectations.
+
+                        </p>
+                    </div>
+                    <div class="about-company-images">
+                        <img src="assets/restaurant-photo-1.jpg">
+                        <img src="assets/restaurant-photo-2.jpg">
+                        <img src="assets/restaurant-photo-3.jpg">
+                        <img src="assets/restaurant-photo-4.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add a simple animation to reveal team members as they come into view
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.style.opacity = 0;
+            member.style.transform = 'translateY(20px)';
+            member.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(member);
+        });
+    </script>
+</body>
+
+</html>
